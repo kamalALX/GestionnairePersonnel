@@ -21,6 +21,14 @@ public class Employee {
     @Email(message = "Email should be valid")
     private String email;
     private JobTitle jobtitle;
+    //private String cin;
+    //private String phone;
+    //private String address;
+    //private String city;
+    //private number cnss;
+    
+    // private String situationFamillle;
+    //private String niveauEtude;
 
     @Lob
     private byte[] pdfFile;

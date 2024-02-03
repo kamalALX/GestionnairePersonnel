@@ -24,6 +24,12 @@ public class EmployeeController {
     }
 
 
+    @GetMapping("")
+    ResponseEntity<List<EmployeeDTO>> allEmployees(){
+        return ResponseEntity.ok().body(iEmployee.getAllEmployees());
+    }
+
+
 
     @PostMapping("/create")
     public ResponseEntity<EmployeeDTO> createEmployeee(@RequestBody EmployeeDTO EmployeeDTO) {
