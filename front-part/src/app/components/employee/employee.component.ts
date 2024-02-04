@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {EmployeeService} from "../../services/employeeService/employee.service";
 import {Employee} from "../../entities/employee/Employee";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-employee',
@@ -13,21 +14,27 @@ export class EmployeeComponent implements OnInit {
   employees:Employee[]=[];
 
   ngOnInit(): void {
-    this.loadpatient();
+    this.listemploye();
   }
 
-  loadpatient():void{
-    this.employeeService.getAllEmployee().subscribe(  (response) => {
+  listemploye()
+  {
+    // this.employeeService.getAllEmployee('employee').subscribe((response) => {
 
-      console.log(this.employees);
-        this.employees = response;
-      },
-      (error) => {
-        console.error('Error loading patient:', error);
+    //   console.log(this.employees);
+    //     this.employees = response;
+    //   },
+    //   (error) => {
+    //     console.error('Error loading patient:', error);
+    //   }
+    // );
+    this.employeeService.getAllEmployee('', {  }).subscribe((dataemployee: any) => {
+      this.employees = dataemployee;
+      console.log(dataemployee);
+    },
+      (err: any) => {
+        Swal.fire('Erreur', 'Erreur de chargement des données', 'error');
       }
     );
   }
-
-
-  protected readonly Employee = Employee;
 }
