@@ -19,7 +19,7 @@ import {AppRoutingModule} from "./app-routing.module";
     AppComponent,
     EmployeeComponent,
     AddEmployeeComponent,
-    UpdateEmployeeComponent
+    UpdateEmployeeComponent,
   ],
   imports: [
     BrowserModule,
