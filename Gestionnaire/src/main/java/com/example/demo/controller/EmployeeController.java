@@ -26,6 +26,7 @@ public class EmployeeController {
 
     @GetMapping("")
     ResponseEntity<List<EmployeeDTO>> allEmployees(){
+
         return ResponseEntity.ok().body(iEmployee.getAllEmployees());
     }
 
