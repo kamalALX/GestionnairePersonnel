@@ -1,0 +1,58 @@
+<div class="container-fluid">
+    <h3 class="text-dark mb-4">PERSONNELS</h3>
+    <div class="card shadow">
+        <div class="card-header py-3 col-md">
+          <div class="row">
+            <div class="col-md">
+              <p class="text-primary m-0 fw-bold">Detail de {{currentemployee.name}} </p>
+            </div>
+            <div class="col-md">
+              <button type="button" routerLink="/employee" class="btn btn-outline-primary" style="float: inline-end;">Liste des personnes</button>
+            </div>
+          </div>
+        </div>
+
+    <div class="container-fluid row">
+      <div class="col-md mt-2">
+        <label for="" style="font-weight: bold;color: blue;">Nom et prénom:</label><br>
+        <span style="color: black;">{{currentemployee.name}}</span>
+      </div>
+      <div class="col-md mt-2">
+        <label for="" style="font-weight: bold;color: blue;">CIN:</label><br>
+        <span style="color: black;">{{currentemployee.cin}}</span>
+      </div>
+      <div class="col-md mt-2">
+        <label for="" style="font-weight: bold;color: blue;">CNSS:</label><br>
+        <span style="color: black;">{{currentemployee.cnss}}</span>
+      </div>
+    </div>
+    <div class="container-fluid row">
+      <div class="col-md mt-2">
+        <label for="" style="font-weight: bold;color: blue;">Job title:</label><br>
+        <span style="color: black;">{{currentemployee.jobtitle}}</span>
+      </div>
+      <div class="col-md mt-2">
+        <label for="" style="font-weight: bold;color: blue;">Ville:</label><br>
+        <span style="color: black;">{{currentemployee.city}}</span>
+      </div>
+      <div class="col-md mt-2">
+        <label for="" style="font-weight: bold;color: blue;">Adresse:</label><br>
+        <span style="color: black;">{{currentemployee.address}}</span>
+      </div>
+    </div>
+    <div class="container-fluid row">
+      <div class="col-md">
+        <label for="" style="font-weight: bold;color: blue;">Niveaux d'étude:</label><br>
+        <span style="color: black;">{{currentemployee.niveauEtude}}</span>
+      </div>
+      <div class="col-md">
+        <label for="" style="font-weight: bold;color: blue;">Numéro de téléphone:</label><br>
+        <span style="color: black;">{{currentemployee.phone}}</span>
+      </div>
+      <div class="col-md">
+        <label for="" style="font-weight: bold;color: blue;">Situation familliale:</label><br>
+        <span style="color: black;">{{currentemployee.situationFamillle}}</span>
+      </div>
+    </div>
+    </div>
+  </div>

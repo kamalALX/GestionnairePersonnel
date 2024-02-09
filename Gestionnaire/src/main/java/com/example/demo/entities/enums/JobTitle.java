@@ -5,5 +5,4 @@ public enum JobTitle {
     SECURITY,
     CLEANER,
     RESPONSABLE,
-
 }

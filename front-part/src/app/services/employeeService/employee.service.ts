@@ -42,8 +42,15 @@ export class EmployeeService {
     );
   }
 
-  updateEmployee(patientDTO: Employee): Observable<Employee> {
-    return this.http.put<Employee>(this.apiUrl, patientDTO);
+  // updateEmployee(patientDTO: Employee): Observable<Employee> {
+  //   return this.http.put<Employee>(this.apiUrl, patientDTO);
+  // }
+  updateEmployee(lien: any, obj: any) {
+    return this.http.put<any>(this.env.API_URL + lien, obj).pipe(
+      tap((returnObj) => {
+        return returnObj;
+      })
+    );
   }
 
   //getallPDF

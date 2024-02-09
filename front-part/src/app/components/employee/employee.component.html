@@ -32,25 +32,25 @@
             <table class="table my-0" >
               <thead>
               <tr>
-                <th>Adress E-mail</th>
-                <th>Nom</th>
+                <th>CIN</th>
+                <th>Nom et prénom</th>
+                <th>Numéro de téléphone</th>
                 <th>JobTitle</th>
+                <th>Actions</th>
               </tr>
               </thead>
               <tbody>
               <tr>
               <tr *ngFor="let employee of employees">
-                <td>{{employee.email}}</td>
-                <td>{{employee.name }}</td>
+                <td>{{employee.cin}}</td>
+                <td>{{employee.name}}</td>
+                <td>{{employee.phone}}</td>
                 <td>{{employee.jobtitle}}</td>
-                <td><button class="btn btn-primary" type="button">Detaille</button></td>
                 <td>
-                  <div class="btn-group"><button class="btn btn-primary" type="button">Action</button><button class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false" type="button"></button>
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item" href="#">Supprimer</a>
-                      <a class="dropdown-item" [routerLink]="['/updatePatient', employee.id]" >Modifier</a>
-                    </div>
-                  </div>
+                  <a  (click) = "detailemployee(employee)"><i class="far fa-eye" style="color: #007bff;"></i></a>
+                  <a (click) = "editemployee(employee)"><i class="fas fa-edit m-1" style="color: #007bff;"></i></a>
+                  <i class="far fa-trash-alt" style="color: red;"></i>
+                  
                 </td>
               </tr>
               <tr>

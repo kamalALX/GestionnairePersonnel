@@ -1,1 +1,87 @@
-<p>update-employee works!</p>
+<div class="container-fluid">
+    <h3 class="text-dark mb-4">PERSONNELS</h3>
+    <div class="card shadow">
+        <div class="card-header py-3 col-md">
+          <div class="row">
+            <div class="col-md">
+              <p class="text-primary m-0 fw-bold">Editer personne</p>
+            </div>
+            <div class="col-md">
+              <button type="button" routerLink="/employee" class="btn btn-outline-primary" style="float: inline-end;">Liste des personnes</button>
+            </div>
+          </div>
+        </div>
+
+      <div class="card-body">
+        <form [formGroup]="Personneform"  (ngSubmit)="modifierClient()">
+            <div class="form-group">
+                <div class="row">
+                  <div class="col-md">
+                    <label for="exampleFormControlInput1">CIN</label>
+                    <input type="text" formControlName="cin" class="form-control" id="exampleFormControlInput1" placeholder="cin">
+                
+                </div>
+                    <div class="col-md">
+                        <label for="exampleFormControlInput1">Nom et prénom</label>
+                        <input type="text" formControlName="name" class="form-control" id="exampleFormControlInput1" placeholder="nometprénompersonne">
+                  
+                    </div>
+                    <div class="col-md">
+                      <label for="cnss">CNSS</label>
+                      <input type="number" formControlName="cnss" class="form-control" id="css" placeholder="cnss">
+                    </div>
+                  
+                </div>
+                <div class="row">
+                  <div class="col-md">
+                    <label for="phone">Niveau d'étude</label>
+                    <input type="text" formControlName="niveauxdetude" class="form-control" id="niveauxdetude">
+                  </div>
+                  <div class="form-group col-md">
+                    <label for="exampleFormControlInput1">Job Title</label>
+                    <select class="form-select" formControlName="jobtitle">
+                        <option value="" >Select the job title</option>
+                        <option value="CHAUFFEUR">CHAUFFEUR</option>
+                        <option value="SECURITY">SECURITY</option>
+                        <option value="CLEANER">CLEANER</option>
+                        <option value="RESPONSABLE">RESPONSABLE</option>
+                      </select>
+                </div>
+                    <div class="form-group col-md">
+                        <label for="Situationfam">Situation familliale</label>
+                        <select class="form-select" formControlName="situationfam">
+                            <option value="" >Select situation familliale</option>
+                            <option value="CELIBATAIRE">CELIBATAIRE</option>
+                            <option value="MARIE">MARIE</option>
+                          </select>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-md">
+                    <label for="ville">Ville</label>
+                    <input type="text" formControlName="ville" class="form-control" id="ville">
+                  </div>
+                  <div class="col-md">
+                    <label for="adresse">Adresse</label>
+                    <input type="text" formControlName="adresse" class="form-control" id="addresse">
+                  </div>
+                <div class="col-md">
+                    <label for="exampleFormControlInput1">Email</label>
+                    <input type="email" formControlName="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                </div>
+                </div>
+                <div class="row">
+                  <div class="col-md">
+                    <label for="phone" class="mb-1 d-block">Numéro de téléphone</label>
+                    <input type="tel" formControlName="phone" class="form-control w-100" id="phone">
+                  </div>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center;">
+                <input  class="btn btn-primary mt-2" type="submit" value="Modifier">
+            </div>
+          </form>
+          
+      </div>
+    </div>
+  </div>

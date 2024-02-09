@@ -67,6 +67,13 @@ public class EmployeeImpl implements IEmployee {
         employee.setName(employeeDTO.getName());
         employee.setJobtitle(employeeDTO.getJobtitle());
         employee.setEmail(employeeDTO.getEmail());
+        employee.setAddress(employeeDTO.getAddress());
+        employee.setCity(employee.getCity());
+        employee.setCin(employee.getCin());
+        employee.setCnss(employee.getCnss());
+        employee.setNiveauEtude(employee.getNiveauEtude());
+        employee.setPdfFile(employee.getPdfFile());
+        employee.setSituationFamillle(employee.getSituationFamillle());
         employeeRepository.save(employee);
         return modelMapper.map(employee, EmployeeDTO.class);
     }

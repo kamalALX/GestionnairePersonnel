@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {EmployeeService} from "../../services/employeeService/employee.service";
 import {Employee} from "../../entities/employee/Employee";
 import Swal from 'sweetalert2';
-
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
@@ -10,13 +10,26 @@ import Swal from 'sweetalert2';
 })
 export class EmployeeComponent implements OnInit {
 
-  constructor( private employeeService:EmployeeService) { }
-  employees:Employee[]=[];
-
+  constructor( 
+    private employeeService:EmployeeService,
+    public router: Router
+  ) { }
+  employees:any[]=[];
+  currentemployee: any = JSON.parse(localStorage.getItem('currentemployee') || '{}');
   ngOnInit(): void {
     this.listemploye();
   }
 
+  detailemployee(employee:any){
+    localStorage.removeItem('currentemployee');
+    localStorage.setItem('currentemployee', JSON.stringify(employee));
+    this.router.navigate(['/detailemployee']);
+  }
+  editemployee(employee:any){
+    localStorage.removeItem('currentemployee');
+    localStorage.setItem('currentemployee', JSON.stringify(employee));
+    this.router.navigate(['/updateEmployee']);
+  }
   listemploye()
   {
     // this.employeeService.getAllEmployee('employee').subscribe((response) => {
