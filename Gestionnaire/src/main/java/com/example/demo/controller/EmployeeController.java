@@ -59,7 +59,7 @@ public class EmployeeController {
         iEmployee.savePdf(id, file);
         return ResponseEntity.ok().build();
     }
-    @GetMapping("/downloadPdf/{id}")
+        @GetMapping("/downloadPdf/{id}")
     public ResponseEntity<byte[]> downloadPdf(@PathVariable Long id) {
         byte[] pdfFile = iEmployee.getPdf(id);
 

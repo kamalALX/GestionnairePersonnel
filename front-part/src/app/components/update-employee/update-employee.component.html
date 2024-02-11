@@ -74,6 +74,10 @@
                     <label for="phone" class="mb-1 d-block">Numéro de téléphone</label>
                     <input type="tel" formControlName="phone" class="form-control w-100" id="phone">
                   </div>
+                  <div class="col-md">
+                    <input class="form-control" accept="application/pdf"
+                    type="file" multiple="true" id="pdfipdf" (change)="uploadPdfFile($event)" formControlName="pdfipdf">
+                  </div>
                 </div>
             </div>
             <div style="display: flex; justify-content: center;">

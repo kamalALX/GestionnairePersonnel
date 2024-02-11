@@ -66,8 +66,18 @@ export class EmployeeService {
       })
     );
   }
+  downloadPdf(endpoint: string): Observable<Blob> {
+    return this.http.get(this.env.API_URL + endpoint, { responseType: 'blob' });
+  }
   deleteEmployee(lien: any, obj: any) {
     return this.http.delete<any>(this.env.API_URL + lien, obj).pipe(
+      tap((returnObj) => {
+        return returnObj;
+      })
+    );
+  }
+  uploadPdf(lien: any, obj: any) {
+    return this.http.put<any>(this.env.API_URL + lien, obj).pipe(
       tap((returnObj) => {
         return returnObj;
       })
