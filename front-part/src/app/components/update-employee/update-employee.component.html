@@ -13,13 +13,12 @@
         </div>
 
       <div class="card-body">
-        <form [formGroup]="Personneform"  (ngSubmit)="modifierClient()">
+        <form [formGroup]="Personneform"  (ngSubmit)="modifierEmployee()">
             <div class="form-group">
                 <div class="row">
                   <div class="col-md">
                     <label for="exampleFormControlInput1">CIN</label>
                     <input type="text" formControlName="cin" class="form-control" id="exampleFormControlInput1" placeholder="cin">
-                
                 </div>
                     <div class="col-md">
                         <label for="exampleFormControlInput1">Nom et prénom</label>
@@ -62,8 +61,8 @@
                     <input type="text" formControlName="ville" class="form-control" id="ville">
                   </div>
                   <div class="col-md">
-                    <label for="adresse">Adresse</label>
-                    <input type="text" formControlName="adresse" class="form-control" id="addresse">
+                    <label for="address">Adresse</label>
+                    <input type="text" formControlName="address" class="form-control" id="address">
                   </div>
                 <div class="col-md">
                     <label for="exampleFormControlInput1">Email</label>

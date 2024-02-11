@@ -53,7 +53,6 @@ public class EmployeeImpl implements IEmployee {
     @Override
     public void deleteEmployee(Long id) {
         employeeRepository.deleteById(id);
-
     }
 
     @Override
@@ -68,12 +67,12 @@ public class EmployeeImpl implements IEmployee {
         employee.setJobtitle(employeeDTO.getJobtitle());
         employee.setEmail(employeeDTO.getEmail());
         employee.setAddress(employeeDTO.getAddress());
-        employee.setCity(employee.getCity());
-        employee.setCin(employee.getCin());
-        employee.setCnss(employee.getCnss());
-        employee.setNiveauEtude(employee.getNiveauEtude());
-        employee.setPdfFile(employee.getPdfFile());
-        employee.setSituationFamillle(employee.getSituationFamillle());
+        employee.setCity(employeeDTO.getCity());
+        employee.setCin(employeeDTO.getCin());
+        employee.setCnss(employeeDTO.getCnss());
+        employee.setNiveauEtude(employeeDTO.getNiveauEtude());
+        employee.setPdfFile(employeeDTO.getPdfFile());
+        employee.setSituationFamillle(employeeDTO.getSituationFamillle());
         employeeRepository.save(employee);
         return modelMapper.map(employee, EmployeeDTO.class);
     }

@@ -18,6 +18,7 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
+    "material-table": "^2.0.5",
     "ngx-intl-tel-input": "^3.2.0",
     "rxjs": "~7.5.0",
     "sweetalert2": "^11.10.4",

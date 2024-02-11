@@ -27,13 +27,27 @@ export class EmployeeService {
   //   return this.http.get<Employee[]>(this.apiUrl);
   // }
 
-  getEmployeeById(id: number): Observable<Employee> {
-    return this.http.get<Employee>(`${this.apiUrl}/${id}`);
-  }
+  // getEmployeeById(id: number): Observable<Employee> {
+  //   return this.http.get<Employee>(`${this.apiUrl}/${id}`);
+  // }
 
   // addEmployee(patientDTO: Employee): Observable<Employee> {
   //   return this.http.post<Employee>(this.apiUrl, patientDTO);
   // }
+  getEmployeeById(lien: any, obj: any) {
+    return this.http.get<any>(this.env.API_URL + lien, obj).pipe(
+      tap((returnObj) => {
+        return returnObj;
+      })
+    );
+  }
+  getEmployee(lien: any, obj: any) {
+    return this.http.get<any>(this.env.API_URL + lien, obj).pipe(
+      tap((returnObj) => {
+        return returnObj;
+      })
+    );
+  }
   addEmployee(patientDTO: any, obj: any) {
     return this.http.post<any>(this.env.API_URL + patientDTO, obj).pipe(
       tap((returnObj) => {
@@ -52,10 +66,17 @@ export class EmployeeService {
       })
     );
   }
+  deleteEmployee(lien: any, obj: any) {
+    return this.http.delete<any>(this.env.API_URL + lien, obj).pipe(
+      tap((returnObj) => {
+        return returnObj;
+      })
+    );
+  }
 
   //getallPDF
 
-  deleteEmployee(id: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${id}`);
-  }
+  // deleteEmployee(id: number): Observable<any> {
+  //   return this.http.delete(`${this.apiUrl}/${id}`);
+  // }
 }

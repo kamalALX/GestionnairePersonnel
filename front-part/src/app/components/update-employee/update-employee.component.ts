@@ -20,7 +20,7 @@ export class UpdateEmployeeComponent implements OnInit {
       niveauxdetude: new FormControl('', [Validators.required]),
       situationfam: new FormControl('', [Validators.required]),
       ville: new FormControl('', [Validators.required]),
-      adresse: new FormControl('', [Validators.required]),
+      address: new FormControl('', [Validators.required]),
       phone: new FormControl('', [Validators.required]),
       name: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -34,7 +34,7 @@ export class UpdateEmployeeComponent implements OnInit {
       this.Personneform.get('niveauxdetude')?.setValue(this.currentemployee.niveauEtude);
       this.Personneform.get('situationfam')?.setValue(this.currentemployee.situationFamillle);
       this.Personneform.get('ville')?.setValue(this.currentemployee.city);
-      this.Personneform.get('adresse')?.setValue(this.currentemployee.address);
+      this.Personneform.get('address')?.setValue(this.currentemployee.address);
       this.Personneform.get('phone')?.setValue(this.currentemployee.phone);
       this.Personneform.get('cnss')?.setValue(this.currentemployee.cnss);
       this.Personneform.get('name')?.setValue(this.currentemployee.name);
@@ -58,23 +58,22 @@ export class UpdateEmployeeComponent implements OnInit {
     console.log(this.currentemployee.address);
   }
 
-  modifierClient() {
+  modifierEmployee() {
     this.currentemployee.cin = this.Personneform.get('cin')?.value;
     this.currentemployee.niveauEtude = this.Personneform.get('niveauxdetude')?.value;
     this.currentemployee.situationFamillle = this.Personneform.get('situationfam')?.value;
     this.currentemployee.city = this.Personneform.get('ville')?.value;
-    this.currentemployee.address = this.Personneform.get('addresse')?.value;
+    this.currentemployee.address = this.Personneform.get('address')?.value;
     this.currentemployee.phone = this.Personneform.get('phone')?.value;
     this.currentemployee.cnss = this.Personneform.get('cnss')?.value;
     this.currentemployee.name = this.Personneform.get('name')?.value;
     this.currentemployee.email = this.Personneform.get('email')?.value;
     this.currentemployee.jobtitle = this.Personneform.get('jobtitle')?.value;
-   
-    
     if (this.Personneform.valid) {
       this.apidb.updateEmployee('update/'+ this.currentemployee.id, this.currentemployee).subscribe(
         (data: any) => {
           Swal.fire('', 'Employee modifiée avec succés', 'success');
+          console.log(this.currentemployee);
         },
         (err: any) => {
           Swal.fire('Erreur de modification...', err.error.msg, 'error');
@@ -84,7 +83,6 @@ export class UpdateEmployeeComponent implements OnInit {
     
     else {
       console.log(this.currentemployee.id);
-      
       Swal.fire('Erreur...', 'Erreur de paramètres', 'error');
     }
   }

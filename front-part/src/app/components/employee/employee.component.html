@@ -15,6 +15,14 @@
           </div>
 
         <div class="card-body">
+          <form [formGroup]="frmrecherche">
+            <div style="float:center;" >
+              <label for="exampleFormControlInput1">CIN</label>
+              <input formControlName="recherche_cin"  autocomplete="off" matInput
+              type="text" placeholder="Numéro du commande">
+              <button (click)="search()">Search by CIN</button>
+          </div>
+          </form>
           <div class="row">
             <div class="col-md-6 text-nowrap">
               <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Show&nbsp;<select class="d-inline-block form-select form-select-sm">
@@ -49,7 +57,7 @@
                 <td>
                   <a  (click) = "detailemployee(employee)"><i class="far fa-eye" style="color: #007bff;"></i></a>
                   <a (click) = "editemployee(employee)"><i class="fas fa-edit m-1" style="color: #007bff;"></i></a>
-                  <i class="far fa-trash-alt" style="color: red;"></i>
+                  <a (click) = "supprimer(employee)"><i class="far fa-trash-alt" style="color: red;"></i></a>
                   
                 </td>
               </tr>
