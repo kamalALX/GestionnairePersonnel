@@ -22,6 +22,11 @@ public class EmployeeController {
         iEmployee.getEmployeeById(id);
         return ResponseEntity.ok().body(iEmployee.getEmployeeById(id));
     }
+    @GetMapping("/{cin}")
+    ResponseEntity<EmployeeDTO> getEmployeeByCin( @PathVariable String cin ){
+        iEmployee.getEmployeeByCin(cin);
+        return ResponseEntity.ok().body(iEmployee.getEmployeeByCin(cin));
+    }
 
 
     @GetMapping("")
@@ -59,7 +64,7 @@ public class EmployeeController {
         iEmployee.savePdf(id, file);
         return ResponseEntity.ok().build();
     }
-        @GetMapping("/downloadPdf/{id}")
+    @GetMapping("/downloadPdf/{id}")
     public ResponseEntity<byte[]> downloadPdf(@PathVariable Long id) {
         byte[] pdfFile = iEmployee.getPdf(id);
 

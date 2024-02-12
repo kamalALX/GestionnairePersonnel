@@ -78,17 +78,15 @@ export class EmployeeService {
       })
     );
   }
-<<<<<<< HEAD
   getCities(): Observable<any[]> {
     return this.http.get<any[]>(this.citiesUrl);
-=======
+  }
   uploadPdf(lien: any, obj: any) {
     return this.http.put<any>(this.env.API_URL + lien, obj).pipe(
       tap((returnObj) => {
         return returnObj;
       })
     );
->>>>>>> 796ee9ee348ed1471e24669c3e2a8dce994432a6
   }
 
   //getallPDF

@@ -50,6 +50,13 @@ public class EmployeeImpl implements IEmployee {
                 .collect(Collectors.toList());
 
     }
+
+    @Override
+    public EmployeeDTO getEmployeeByCin(String cin){
+        Employee employee = employeeRepository.findEmployeeByCin(cin);
+        return modelMapper.map(employee, EmployeeDTO.class);
+
+    }
     @Override
     public void deleteEmployee(Long id) {
         employeeRepository.deleteById(id);

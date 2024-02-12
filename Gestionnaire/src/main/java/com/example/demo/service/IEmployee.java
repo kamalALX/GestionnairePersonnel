@@ -21,6 +21,7 @@ public interface IEmployee {
     public default void savePdf(Long id, MultipartFile file) throws IOException {
 
     }
+    EmployeeDTO getEmployeeByCin(String cin);
 
     byte[] getPdf(Long id);
 }
