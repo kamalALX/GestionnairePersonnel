@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 export class UpdateEmployeeComponent implements OnInit {
   currentemployee: any = JSON.parse(localStorage.getItem('currentemployee') || '{}');
   Personneform: FormGroup;
+  file_personne: any[] = [];
   constructor(
     private apidb: EmployeeService,
   ) { 
@@ -25,6 +26,7 @@ export class UpdateEmployeeComponent implements OnInit {
       name: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
       jobtitle: new FormControl('', [Validators.required]),
+      pdfipdf: new FormControl('',),
     });
   }
 
@@ -57,8 +59,39 @@ export class UpdateEmployeeComponent implements OnInit {
     this.getform();
     console.log(this.currentemployee.address);
   }
+  uploadPdfFile(event: any) {
+    const fileInput = event.target;
+  if (fileInput.files && fileInput.files.length > 0) {
+    const file = fileInput.files[0];
+    const reader = new FileReader();
+    
+    reader.onload = (e: any) => {
+      const fileContent = e.target.result;
+      const blob = new Blob([fileContent], { type: file.type });
 
+      const formData: FormData = new FormData();
+      formData.append('file', blob, file.name); // Append the Blob to the FormData object with the key 'file'
+
+      this.apidb.addEmployee('uploadPdf/' + this.currentemployee.id, formData).subscribe(
+        (data: any) => {
+          Swal.fire('', 'Fichier PDF téléchargé avec succès', 'success');
+          console.log('Fichier PDF téléchargé:', data);
+        },
+        (err: any) => {
+          console.log(err);
+          Swal.fire('Erreur de téléchargement du fichier PDF', err.error.msg || 'Une erreur s\'est produite lors du téléchargement du fichier PDF', 'error');
+        }
+      );
+    };
+
+    reader.readAsArrayBuffer(file);
+  } else {
+    Swal.fire('Erreur', 'Aucun fichier sélectionné', 'error'); // Notify the user if no file is selected
+  }
+  }
+  
   modifierEmployee() {
+    const selectedFiles: FileList | null = this.Personneform.get('pdfFile')?.value;
     this.currentemployee.cin = this.Personneform.get('cin')?.value;
     this.currentemployee.niveauEtude = this.Personneform.get('niveauxdetude')?.value;
     this.currentemployee.situationFamillle = this.Personneform.get('situationfam')?.value;
@@ -73,7 +106,8 @@ export class UpdateEmployeeComponent implements OnInit {
       this.apidb.updateEmployee('update/'+ this.currentemployee.id, this.currentemployee).subscribe(
         (data: any) => {
           Swal.fire('', 'Employee modifiée avec succés', 'success');
-          console.log(this.currentemployee);
+          this.uploadPdfFile(selectedFiles);
+        console.log(this.currentemployee);
         },
         (err: any) => {
           Swal.fire('Erreur de modification...', err.error.msg, 'error');
@@ -86,4 +120,5 @@ export class UpdateEmployeeComponent implements OnInit {
       Swal.fire('Erreur...', 'Erreur de paramètres', 'error');
     }
   }
+
 }

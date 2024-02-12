@@ -54,5 +54,12 @@
         <span style="color: black;">{{currentemployee.situationFamillle}}</span>
       </div>
     </div>
+    <div class="container-fluid row">
+      <div class="col-md">
+        <label for="" style="font-weight: bold;color: blue;">Situation familliale:</label><br>
+        <span style="color: black;">{{fileName}}</span>
+      </div>
+    </div>
+    <a (click)="downloadpdf(currentemployee.id)">Télécharger PDF pour {{ currentemployee.name }}</a>
     </div>
   </div>
