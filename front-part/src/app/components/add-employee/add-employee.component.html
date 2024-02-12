@@ -65,7 +65,9 @@
                 <div class="row">
                   <div class="col-md">
                     <label for="ville">Ville</label>
-                    <input type="text" formControlName="ville" class="form-control" id="ville">
+                    <select formControlName="ville" class="form-control" id="ville">
+                      <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+                    </select>
                   </div>
                   <div class="col-md">
                     <label for="adresse">Adresse</label>

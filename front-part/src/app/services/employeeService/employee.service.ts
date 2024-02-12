@@ -10,6 +10,8 @@ import { EnvService } from './env.service';
 export class EmployeeService {
 
   private apiUrl = 'http://localhost:8082/api/employee';
+  private citiesUrl = 'https://my-json-server.typicode.com/chigivera/villes-maroc-api/cities';
+
 
   constructor(
     private http: HttpClient,
@@ -72,6 +74,9 @@ export class EmployeeService {
         return returnObj;
       })
     );
+  }
+  getCities(): Observable<any[]> {
+    return this.http.get<any[]>(this.citiesUrl);
   }
 
   //getallPDF

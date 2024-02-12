@@ -15,7 +15,8 @@ export class AddEmployeeComponent implements OnInit {
 
   Personneform: FormGroup;
   submitted = false;
-
+  cities: any[] = []; 
+  selectedCity: string = ''; 
   constructor(
     private apidb: EmployeeService,
   )
@@ -35,6 +36,11 @@ export class AddEmployeeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    try {
+      this.fetchCities(); // Fetch cities on component initialization
+    } catch (error:any) {
+      console.log("there has been an error: " +error)
+    }
     const inputElement = document.getElementById('phone');
     if (inputElement){
       const iti = intITelInput(inputElement,{
@@ -46,6 +52,19 @@ export class AddEmployeeComponent implements OnInit {
       console.log(selectedCountryData.dialCode); 
     }
   }
+  fetchCities() {
+    this.apidb.getCities().subscribe(
+      (data) => {
+        console.log('Cities data:', data); // Log the data received from the API
+        this.cities = data;
+        console.log('Cities:', this.cities); // Log the assigned cities array
+      },
+      (error) => {
+        console.error('Error fetching cities:', error);
+      }
+    );
+  }
+  
   onSubmit() {
     this.submitted = true;
 
